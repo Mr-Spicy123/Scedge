@@ -1,6 +1,6 @@
 package Misc;
 
-public class PositionScaler {
+public class ScalePos {
     //original width and height of screen
     static int originalScreenWidth = 1280;
     static int originalScreenHeight = 720;

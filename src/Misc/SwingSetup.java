@@ -8,7 +8,6 @@ public class SwingSetup {
   public static void setupFrame(JFrame frame, int x, int y, int width, int height, boolean vis, Object layout) {
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     frame.setBounds(x, y, width, height);
-    frame.setVisible(vis);
     if (layout == null) {
       frame.setLayout(null);
     }
@@ -19,6 +18,7 @@ public class SwingSetup {
     else {
       System.err.println("not a layout");
     }
+    frame.setVisible(vis);
   }
 
   public static void setupPanel(JPanel panel, JLabel label, int x, int y,int width, int height) {
@@ -50,7 +50,7 @@ public class SwingSetup {
   }
 
   public static void setupButton(JButton button, JLayeredPane panel, ActionListener listener, int x, int y, int width, int height, boolean opaque, boolean focusable) {
-    panel.add(button);
+    panel.add(button, JLayeredPane.PALETTE_LAYER);
     button.setBounds(x, y, width, height);
     button.setOpaque(opaque);
     button.setFocusable(focusable);
