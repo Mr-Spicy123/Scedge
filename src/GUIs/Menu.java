@@ -25,7 +25,6 @@ public class Menu {
                 Object source = e.getSource();
                 if (source instanceof JButton) {
                     JButton button = (JButton) source;
-                    String currentItem = "";
                     switch (button.getText()) {
                         case "exit":
                             frame.setVisible(false);
@@ -39,7 +38,8 @@ public class Menu {
                             System.exit(0);
                             break;
                         case "add event":
-                            System.exit(0);
+                            new AddEvent();
+                            frame.dispose();
                             break;
                     }
                 }
@@ -76,5 +76,12 @@ public class Menu {
 
         frame.setVisible(true);
 
+    }
+
+    public static void delay(int mills) {
+        try  {
+            Thread.sleep(mills);
+        }catch(InterruptedException e){
+        }
     }
 }

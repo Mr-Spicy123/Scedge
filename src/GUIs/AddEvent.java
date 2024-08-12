@@ -10,20 +10,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddClass {
+public class AddEvent {
 
     ActionListener listener;
     JFrame frame = new JFrame();
 
-    public AddClass() {
-
+    public AddEvent() {
         listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Object source = e.getSource();
-                if (source instanceof JButton) {
-                    JButton button = (JButton) source;
-                    switch (button.getText()) {
+                if (e.getSource() instanceof JButton) {
+                    JButton button = (JButton) e.getSource();
+                    switch(button.getText()) {
                         case "exit":
                             frame.dispose();
                             System.exit(0);
@@ -47,7 +45,7 @@ public class AddClass {
         panel.setBounds(0, 0, ScreenInfo.screenWidth, ScreenInfo.screenHeight);
         frame.add(panel);
 
-        ImageIcon bgImage = ImageIconScaler.scaleImageIcon(new ImageIcon("Images/Backgrounds/SCEDGE_AddClass.png"), ScreenInfo.screenWidth, ScreenInfo.screenHeight);
+        ImageIcon bgImage = ImageIconScaler.scaleImageIcon(new ImageIcon("Images/Backgrounds/SCEDGE_AddEvent.png"), ScreenInfo.screenWidth, ScreenInfo.screenHeight);
         JLabel bgLabel = new JLabel(bgImage);
         bgLabel.setBounds(0, 0, ScreenInfo.screenWidth, ScreenInfo.screenHeight);
         panel.add(bgLabel, JLayeredPane.DEFAULT_LAYER);
@@ -61,12 +59,5 @@ public class AddClass {
         SwingSetup.setupInvisibleButton(back, panel, listener, x2, y2, width2, height2, false, false);
 
         frame.setVisible(true);
-    }
-
-    public static void delay(int mills) {
-        try {
-            Thread.sleep(mills);
-        } catch (InterruptedException e) {
-        }
     }
 }
